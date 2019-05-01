@@ -1,14 +1,14 @@
-﻿using Coypu;
-using Coypu.Drivers.Selenium;
-using OpenQA.Selenium.Chrome;
-using System;
+﻿using OpenQA.Selenium.Chrome;
 using TechTalk.SpecFlow;
+using Xunit;
 
 namespace NogginBug.Tests.Features.Steps
 {
     [Binding]
     public class ViewOpenBugsSteps
     {
+        const string BaseUrl = "https://localhost:44314/";
+
         private int _expectedBugsWithOpenStatus;
 
         [Given(@"there are (.*) bugs with status open")]
@@ -20,25 +20,13 @@ namespace NogginBug.Tests.Features.Steps
         [Then(@"I see a list of the titles of all bugs with open status")]
         public void ThenISeeAListOfTheTitlesOfAllBugsWithOpenStatus()
         {
-            var config = new SessionConfiguration
+            using (var driver = new ChromeDriver("."))
             {
-                AppHost = "localhost",
-                Port = 44314,
-                SSL = true,
-                //Driver = typeof(SeleniumWebDriver),
-                //Browser = Coypu.Drivers.Browser.Chrome
-                
-            };
-
-            var driver = new SeleniumWebDriver(Coypu.Drivers.Browser.Chrome);
-            driver.
-
-            using (var browser = new BrowserSession(config, driver))
-            {
-                //var ff = browser.Native as FirefoxDriver;
-
-                browser.Visit("/");
+                driver.Navigate().GoToUrl(BaseUrl);
+                var bugs = driver.FindElementsByCssSelector("#bugs li");
+                Assert.Equal(_expectedBugsWithOpenStatus, bugs.Count);
             }
-            }
+
+        }
     }
 }
