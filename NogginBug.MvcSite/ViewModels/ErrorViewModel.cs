@@ -1,6 +1,6 @@
 using System;
 
-namespace NogginBug.MvcSite.Models
+namespace NogginBug.MvcSite.ViewModels
 {
     public class ErrorViewModel
     {

@@ -1,0 +1,9 @@
+﻿@model ViewModels.Home.IndexPageViewModel
+
+<h1 class="display-4">Open Bugs</h1>
+<ul id="bugs">
+    @foreach(var bug in Model.Bugs)
+    {
+        <li>@bug.Title</li>
+    }
+</ul>

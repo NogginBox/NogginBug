@@ -1,9 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@model  NogginBug.MvcSite.ViewModels.Shared.BasePageViewModel
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - NogginBug.MvcSite</title>
+    <title>@Model.Page?.Title  ?? "Unknown"</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />

@@ -1,29 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using NogginBug.MvcSite.Models;
+using Microsoft.Extensions.Logging;
+using NogginBug.Data;
+using NogginBug.Data.Extensions;
+using NogginBug.MvcSite.ViewModels.Home;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace NogginBug.MvcSite.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
-        public IActionResult Index()
+        private readonly IMapper _mapper;
+
+        public HomeController(IDataContext data, ILogger<HomeController> logger, IMapper mapper) : base(data)
         {
-            return View();
+            _mapper = mapper;
         }
 
-        public IActionResult Privacy()
+        public IActionResult IndexPage()
         {
-            return View();
-        }
+            var bugs = Data.Bugs
+                    .WhereOpen()
+                    .ToList();
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            var model = new IndexPageViewModel("Home")
+            {
+                Bugs = _mapper.Map<List<BugViewModel>>(bugs)
+            };
+
+            return View(model);
         }
+        
     }
+
 }

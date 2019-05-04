@@ -3,9 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28809.33
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NogginBug.MvcSite", "NogginBug.MvcSite\NogginBug.MvcSite.csproj", "{A017357C-B7EB-4DED-9632-0B3486F22497}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NogginBug.MvcSite", "NogginBug.MvcSite\NogginBug.MvcSite.csproj", "{A017357C-B7EB-4DED-9632-0B3486F22497}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NogginBug.Tests", "NogginBug.Tests\NogginBug.Tests.csproj", "{166D5321-0437-4C87-914E-BB700C9B0229}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NogginBug.Tests", "NogginBug.Tests\NogginBug.Tests.csproj", "{166D5321-0437-4C87-914E-BB700C9B0229}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NogginBug.Data", "NogginBug.Data\NogginBug.Data.csproj", "{2389CB8C-942F-43A6-99CF-044DB5ECE100}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_solution", "_solution", "{A375DEA5-C086-4025-8D94-4686C92AE064}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +29,10 @@ Global
 		{166D5321-0437-4C87-914E-BB700C9B0229}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{166D5321-0437-4C87-914E-BB700C9B0229}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{166D5321-0437-4C87-914E-BB700C9B0229}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2389CB8C-942F-43A6-99CF-044DB5ECE100}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2389CB8C-942F-43A6-99CF-044DB5ECE100}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2389CB8C-942F-43A6-99CF-044DB5ECE100}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2389CB8C-942F-43A6-99CF-044DB5ECE100}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
