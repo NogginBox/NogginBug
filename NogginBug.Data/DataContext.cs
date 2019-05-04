@@ -15,7 +15,7 @@ namespace NogginBug.Data
             _connectionString = "Server=localhost;Database=NogginBug;Trusted_Connection=True;";
         }
 
-        public DataContext(DbContextOptions options) : base(options) { }
+        public DataContext(DbContextOptions<DataContext> options) : base(options) { }
 
         public DbSet<Bug> Bugs { get; set; }
 

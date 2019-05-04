@@ -1,7 +1,14 @@
-﻿namespace NogginBug.MvcSite.ViewModels.Shared
+﻿using Microsoft.AspNetCore.Html;
+
+namespace NogginBug.MvcSite.ViewModels.Shared
 {
     public class PageDetailsViewModel
     {
-        public string Title { get; set; }
+        public void SetTitle(string pageTitle, string siteTitle)
+        {
+            Title = new HtmlString($"{pageTitle} &ndash; {siteTitle}");
+        }
+
+        public HtmlString Title { get; private set; }
     }
 }

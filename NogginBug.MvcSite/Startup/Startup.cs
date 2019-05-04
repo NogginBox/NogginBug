@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NogginBug.Data;
@@ -25,7 +26,9 @@ namespace NogginBug.MvcSite.Startup
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<IDataContext, DataContext>();
+            services.AddDbContext<IDataContext, DataContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("BugDatabase"))
+            );
 
             // Auto Mapper Configurations
             var mappingConfig = new MapperConfiguration(mc =>

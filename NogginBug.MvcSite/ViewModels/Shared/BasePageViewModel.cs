@@ -8,10 +8,8 @@
     {
         public BasePageViewModel(string title)
         {
-            Page = new PageDetailsViewModel
-            {
-                Title = $"{title} &ndash; NogginBug"
-            };
+            Page = new PageDetailsViewModel();
+            Page.SetTitle(title, "NogginBug");
         }
 
         public PageDetailsViewModel Page { get; set; }
