@@ -17,17 +17,17 @@ namespace NogginBug.Tests.Features
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.0.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class ViewOpenBugsFeature : Xunit.IClassFixture<ViewOpenBugsFeature.FixtureData>, System.IDisposable
+    public partial class ViewBugDetailFeature : Xunit.IClassFixture<ViewBugDetailFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         
-#line 1 "ViewOpenBugs.feature"
+#line 1 "ViewBugDetail.feature"
 #line hidden
         
-        public ViewOpenBugsFeature(ViewOpenBugsFeature.FixtureData fixtureData, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public ViewBugDetailFeature(ViewBugDetailFeature.FixtureData fixtureData, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
             this.TestInitialize();
@@ -36,8 +36,8 @@ namespace NogginBug.Tests.Features
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "View Open Bugs", "\tIn order to see current bugs\r\n\tAs a user\r\n\tI want to see the titles of all bugs " +
-                    "with open status", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "View Bug Detail", "\tIn order to see more detail on a bug\r\n\tAs a user\r\n\tI want to see bug details inc" +
+                    "luding the title, description and when it was opened", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -77,21 +77,21 @@ namespace NogginBug.Tests.Features
             this.ScenarioTearDown();
         }
         
-        [Xunit.FactAttribute(DisplayName="Visit home page to see open bugs")]
-        [Xunit.TraitAttribute("FeatureTitle", "View Open Bugs")]
-        [Xunit.TraitAttribute("Description", "Visit home page to see open bugs")]
-        public virtual void VisitHomePageToSeeOpenBugs()
+        [Xunit.FactAttribute(DisplayName="Visit home page and click on bug to see details")]
+        [Xunit.TraitAttribute("FeatureTitle", "View Bug Detail")]
+        [Xunit.TraitAttribute("Description", "Visit home page and click on bug to see details")]
+        public virtual void VisitHomePageAndClickOnBugToSeeDetails()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Visit home page to see open bugs", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Visit home page and click on bug to see details", null, ((string[])(null)));
 #line 6
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line 7
-       testRunner.Given("there are 2 bugs with status open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("there are 1 bugs with status open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 9
-       testRunner.When("I visit the homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I click the bug title", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 10
-       testRunner.Then("I see a list of the titles of all bugs with open status", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I see a the bug title, description and when it was opended", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -103,12 +103,12 @@ this.ScenarioInitialize(scenarioInfo);
             
             public FixtureData()
             {
-                ViewOpenBugsFeature.FeatureSetup();
+                ViewBugDetailFeature.FeatureSetup();
             }
             
             void System.IDisposable.Dispose()
             {
-                ViewOpenBugsFeature.FeatureTearDown();
+                ViewBugDetailFeature.FeatureTearDown();
             }
         }
     }

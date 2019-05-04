@@ -30,6 +30,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Features\ViewBugDetail.feature.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ViewBugDetail.feature</DependentUpon>
+    </Compile>
     <Compile Update="Features\ViewOpenBugs.feature.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -38,15 +43,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Features\SpecFlowFeature1.feature">
+    <SpecFlowFeatureFiles Update="Features\ViewBugDetail.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>SpecFlowFeature1.feature.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
+      <LastGenOutput>ViewBugDetail.feature.cs</LastGenOutput>
+    </SpecFlowFeatureFiles>
     <SpecFlowFeatureFiles Update="Features\ViewOpenBugs.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ViewOpenBugs.feature.cs</LastGenOutput>
     </SpecFlowFeatureFiles>
   </ItemGroup>
