@@ -1,7 +1,7 @@
 ﻿using NogginBug.MvcSite.ViewModels.Shared;
 using System.Collections.Generic;
 
-namespace NogginBug.MvcSite.ViewModels.Home
+namespace NogginBug.MvcSite.ViewModels.Bugs
 {
     public class IndexPageViewModel : BasePageViewModel
     {

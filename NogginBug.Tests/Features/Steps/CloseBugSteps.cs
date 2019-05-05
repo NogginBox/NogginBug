@@ -12,12 +12,6 @@ namespace NogginBug.Tests.Features.Steps
             ScenarioContext.Current.Pending();
         }
         
-        [Then(@"a success message is displayed")]
-        public void ThenASuccessMessageIsDisplayed()
-        {
-            ScenarioContext.Current.Pending();
-        }
-        
         [Then(@"the bug'(.*)'closed'")]
         public void ThenTheBugClosed(string p0)
         {

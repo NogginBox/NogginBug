@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NogginBug.Data;
+using NogginBug.MvcSite.Services;
+using NogginBug.MvcSite.Services.Interfaces;
 using NogginBug.MvcSite.Startup.Mapping;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
@@ -38,6 +40,8 @@ namespace NogginBug.MvcSite.Startup
             });
             var mapper = mappingConfig.CreateMapper();
             services.AddSingleton(mapper);
+
+            services.AddSingleton<IDateTimeService, DateTimeService>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 

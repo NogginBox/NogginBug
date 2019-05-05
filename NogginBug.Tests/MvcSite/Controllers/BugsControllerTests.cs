@@ -6,7 +6,7 @@ using NogginBug.Data;
 using NogginBug.Data.Model;
 using NogginBug.MvcSite.Controllers;
 using NogginBug.MvcSite.Startup.Mapping;
-using NogginBug.MvcSite.ViewModels.Home;
+using NogginBug.MvcSite.ViewModels.Bugs;
 using NSubstitute;
 using System;
 using System.Threading.Tasks;
@@ -14,7 +14,7 @@ using Xunit;
 
 namespace NogginBug.Tests.MvcSite.Controllers
 {
-    public class HomeControllerTests
+    public class BugsControllerTests
     {
         [Fact]
         public async Task IndexPageShowsOpenBugs()
@@ -34,10 +34,10 @@ namespace NogginBug.Tests.MvcSite.Controllers
             using (var context = new DataContext(options))
             {
                 // Arrange
-                var logger = Substitute.For<ILogger<HomeController>>();
+                var logger = Substitute.For<ILogger<BugsController>>();
                 var config = CreateCigurationForProfile<ViewModelMappingProfile>();
                 var mapper = config.CreateMapper();
-                var controller = new HomeController(context, logger, mapper);
+                var controller = new BugsController(context, null, logger, mapper);
 
                 // Act
                 var result = await controller.IndexPage();

@@ -7,10 +7,10 @@ namespace NogginBug.MvcSite.Startup.Mapping
     {
         public ViewModelMappingProfile()
         {
-            CreateMap<Bug, ViewModels.Home.BugViewModel>()
+            CreateMap<Bug, ViewModels.Bugs.BugViewModel>()
                 .ForMember(d => d.Id, opt => opt.MapFrom(s => s.IdExternal));
 
-            CreateMap<Bug, ViewModels.Home.BugSummaryViewModel>()
+            CreateMap<Bug, ViewModels.Bugs.BugSummaryViewModel>()
                 .ForMember(d => d.Id, opt => opt.MapFrom(s => s.IdExternal));
         }
     }

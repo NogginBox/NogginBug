@@ -39,7 +39,6 @@ namespace NogginBug.Tests.Features.Steps
                 .PutJsonAsync(bugs);
         }
 
-
         [When(@"I visit the '(.*)' page")]
         public void WhenIVisitPage(string page)
         {
@@ -47,11 +46,19 @@ namespace NogginBug.Tests.Features.Steps
             {
                 switch(page)
                 {
+                    case "add-bug": return Shared.SiteUrl.AppendPathSegment("create");
                     case "home": return Shared.SiteUrl;
                     default: throw new Exception($"Unknow page '{page}'");
                 }
             }
             _webDriver.Navigate().GoToUrl(UrlForPage());
+        }
+
+        [Then(@"a success message is displayed")]
+        public void ThenASuccessMessageIsDisplayed()
+        {
+            var successMessage = _webDriver.FindElementByClassName("alert-success");
+            Assert.NotNull(successMessage);
         }
     }
 }

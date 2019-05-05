@@ -1,6 +1,6 @@
 ﻿using NogginBug.Data.Model;
 
-namespace NogginBug.MvcSite.ViewModels.Home
+namespace NogginBug.MvcSite.ViewModels.Bugs
 {
     public class BugSummaryViewModel
     {
