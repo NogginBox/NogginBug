@@ -31,7 +31,7 @@ namespace NogginBug.Tests.Data.Extensions
             bugs[1].Close();
 
             // Act
-            var openBugs = bugs.WhereOpen().ToList();
+            var openBugs = bugs.AsQueryable().WhereOpen().ToList();
 
             // Assert
             Assert.Equal(2, openBugs.Count);

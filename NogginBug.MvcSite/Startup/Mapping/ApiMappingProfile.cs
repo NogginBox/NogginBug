@@ -20,14 +20,4 @@ namespace NogginBug.MvcSite.Startup.Mapping
                 .ForMember(d => d.Id, opt => opt.MapFrom(s => s.IdExternal));
         }
     }
-
-    public class ViewModelMappingProfile : Profile
-    {
-        public ViewModelMappingProfile()
-        {
-            CreateMap<Bug, ViewModels.Home.BugViewModel>()
-                .ForMember(d => d.Id, opt => opt.MapFrom(s => s.IdExternal));
-
-        }
-    }
 }

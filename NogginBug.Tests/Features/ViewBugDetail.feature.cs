@@ -88,8 +88,10 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line 7
  testRunner.Given("there are 1 bugs with status open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 8
+ testRunner.When("I visit the \'home\' page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 9
- testRunner.When("I click the bug title", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.And("I click the bug title", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 10
  testRunner.Then("I see a the bug title, description and when it was opended", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden

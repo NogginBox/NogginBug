@@ -89,9 +89,9 @@ this.ScenarioInitialize(scenarioInfo);
 #line 7
        testRunner.Given("there are 2 bugs with status open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 9
-       testRunner.When("I visit the homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+       testRunner.When("I visit the \'home\' page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 10
-       testRunner.Then("I see a list of the titles of all bugs with open status", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+       testRunner.Then("I see a list of the titles of 2 bugs with open status", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

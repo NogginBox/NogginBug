@@ -7,6 +7,6 @@ namespace NogginBug.MvcSite.ViewModels.Home
     {
         public IndexPageViewModel(string title) : base(title) {}
 
-        public IList<BugViewModel> Bugs { get; set; }
+        public IList<BugSummaryViewModel> Bugs { get; set; }
     }
 }

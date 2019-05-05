@@ -5,6 +5,6 @@
 
 Scenario: Visit home page and click on bug to see details
 	Given there are 1 bugs with status open
-	# And I have also entered 70 into the calculator
-	When I click the bug title
+	When I visit the 'home' page
+	And I click the bug title
 	Then I see a the bug title, description and when it was opended

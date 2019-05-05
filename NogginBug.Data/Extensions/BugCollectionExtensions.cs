@@ -15,12 +15,12 @@ namespace NogginBug.Data.Extensions
             return bugs;
         }
 
-        public static IEnumerable<Bug> WhereOpen(this IEnumerable<Bug> bugs)
+        public static IQueryable<Bug> WhereOpen(this IQueryable<Bug> bugs)
         {
             return bugs.Where(b => b.Status == BugStatus.Open);
         }
 
-        public static IEnumerable<Bug> WhereVisible(this IEnumerable<Bug> bugs)
+        public static IQueryable<Bug> WhereVisible(this IQueryable<Bug> bugs)
         {
             return bugs.Where(b => b.Status != BugStatus.Deleted);
         }

@@ -9,6 +9,7 @@ namespace NogginBug.Tests.Features.Steps
     public class WebDriverSupport
     {
         private readonly IObjectContainer _objectContainer;
+        private RemoteWebDriver _driver;
 
         public WebDriverSupport(IObjectContainer objectContainer)
         {
@@ -18,8 +19,14 @@ namespace NogginBug.Tests.Features.Steps
         [BeforeScenario]
         public void InitializeWebDriver()
         {
-            var driver = new ChromeDriver(".");
-            _objectContainer.RegisterInstanceAs<RemoteWebDriver>(driver);
+            _driver = new ChromeDriver(".");
+            _objectContainer.RegisterInstanceAs<RemoteWebDriver>(_driver);
+        }
+
+        [AfterScenario]
+        public void DesposeWebDriver()
+        {
+            _driver.Dispose();
         }
     }
 }

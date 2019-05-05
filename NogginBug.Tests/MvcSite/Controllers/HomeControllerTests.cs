@@ -9,6 +9,7 @@ using NogginBug.MvcSite.Startup.Mapping;
 using NogginBug.MvcSite.ViewModels.Home;
 using NSubstitute;
 using System;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace NogginBug.Tests.MvcSite.Controllers
@@ -16,7 +17,7 @@ namespace NogginBug.Tests.MvcSite.Controllers
     public class HomeControllerTests
     {
         [Fact]
-        public void IndexPageShowsOpenBugs()
+        public async Task IndexPageShowsOpenBugs()
         {
             // Arrange - DataContext
             var options = CreateInMemoryDbContextOptions("IndexPageShowsOpenBugs");
@@ -39,7 +40,7 @@ namespace NogginBug.Tests.MvcSite.Controllers
                 var controller = new HomeController(context, logger, mapper);
 
                 // Act
-                var result = controller.IndexPage();
+                var result = await controller.IndexPage();
                 var model = (result as ViewResult)?.Model as IndexPageViewModel;
 
                 // Assert

@@ -4,6 +4,6 @@
 <ul id="bugs">
     @foreach(var bug in Model.Bugs)
     {
-        <li>@bug.Title</li>
+        <li><a asp-action="DetailPage" asp-route-id="@bug.Id">@bug.Title</a></li>
     }
 </ul>
