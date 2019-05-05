@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace NogginBug.MvcSite.Controllers
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class BugsController : BaseController
     {
         private readonly IDateTimeService _dateTimeService;
@@ -24,7 +25,7 @@ namespace NogginBug.MvcSite.Controllers
             _mapper = mapper;
         }
 
-        [Route("")]
+        [HttpGet("")]
         public async Task<IActionResult> IndexPage()
         {
             var bugs = await Data.Bugs
@@ -39,7 +40,7 @@ namespace NogginBug.MvcSite.Controllers
             return View(model);
         }
 
-        [Route("bug-{id}")]
+        [HttpGet("bug-{id}")]
         public async Task<IActionResult> DetailPage(string id)
         {
             Guid.TryParse(id, out var guidId);
@@ -55,7 +56,7 @@ namespace NogginBug.MvcSite.Controllers
             return View(model);
         }
 
-        [Route("create")]
+        [HttpGet("create")]
         public IActionResult CreatePage()
         {
             var model = new CreatePageViewModel($"Bug: Create new")

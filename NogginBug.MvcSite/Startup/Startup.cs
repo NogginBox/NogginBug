@@ -95,7 +95,7 @@ namespace NogginBug.MvcSite.Startup
 
             app.UseSwagger(c =>
             {
-                c.RouteTemplate = "api/{documentName}/swagger.json";
+                c.RouteTemplate = "/api/{documentName}/swagger.json";
             });
             app.UseSwaggerUI(c =>
             {
