@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using NogginBug.Data;
+using NogginBug.MvcSite.Extensions;
+using NogginBug.MvcSite.ViewModels.Shared;
 
 namespace NogginBug.MvcSite.Controllers
 {
@@ -13,6 +15,11 @@ namespace NogginBug.MvcSite.Controllers
         {
             Data = data;
             Logger = logger;
+        }
+
+        protected void ShowSuccessNotification(string message)
+        {
+            TempData.AddNotifcation(message, NotificationViewModel.NotificationType.Success);
         }
     }
 }

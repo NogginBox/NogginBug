@@ -84,8 +84,8 @@ namespace NogginBug.MvcSite.Controllers
                 Data.Bugs.Add(newBug);
                 await Data.SaveChangesAsync();
 
-                // Todo: Show message
-                return RedirectToAction("Detail", new { id = newBug.IdExternal });
+                ShowSuccessNotification("New bug saved");
+                return RedirectToAction("DetailPage", new { id = newBug.IdExternal });
             }
             catch(Exception ex)
             {

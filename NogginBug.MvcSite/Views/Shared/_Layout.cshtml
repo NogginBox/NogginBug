@@ -1,4 +1,5 @@
-﻿@model  NogginBug.MvcSite.ViewModels.Shared.BasePageViewModel
+﻿@using NogginBug.MvcSite.ViewModels.Shared;
+@model BasePageViewModel
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,6 +44,13 @@
     <div class="container">
         <partial name="_CookieConsentPartial" />
         <main role="main" class="pb-3">
+            @if(TempData.GetNotification() is NotificationViewModel notification)
+            {
+                <div class="alert @notification.CssClass">
+                    @notification.Message
+                </div>
+            }
+
             @RenderBody()
         </main>
     </div>
