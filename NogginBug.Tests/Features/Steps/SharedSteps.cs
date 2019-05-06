@@ -1,7 +1,9 @@
 ﻿using Flurl;
 using Flurl.Http;
 using NogginBug.Data.Model;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -73,6 +75,9 @@ namespace NogginBug.Tests.Features.Steps
         [Then(@"a success message is displayed")]
         public void ThenASuccessMessageIsDisplayed()
         {
+            var wait = new WebDriverWait(_webDriver, TimeSpan.FromSeconds(10));
+            wait.Until(ExpectedConditions.ElementExists(By.ClassName("alert")));
+
             var successMessage = _webDriver.FindElementByClassName("alert-success");
             Assert.NotNull(successMessage);
         }

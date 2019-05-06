@@ -26,6 +26,33 @@ namespace NogginBug.MvcSite.Areas.Api.Controllers
         }
 
         /// <summary>
+        /// Closes a bug
+        /// </summary>
+        [HttpPost("{id}/close")]
+        public async Task<IActionResult> Close(string id)
+        {
+            Guid.TryParse(id, out var guidId);
+            if (guidId == null) return NotFound();
+            var bug = await Data.Bugs.FirstOrDefaultAsync(b => b.IdExternal == guidId);
+            if (bug == null) return NotFound();
+
+            try
+            {
+                bug.Close();
+                await Data.SaveChangesAsync();
+
+                var bugDto = _mapper.Map<BugDto>(bug);
+
+                return Ok(bugDto);
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex, "Could not close bug");
+                return StatusCode(500);
+            }
+        }
+
+        /// <summary>
         /// Gets details of a bug
         /// </summary>
         [HttpGet("{id}")]
@@ -81,5 +108,7 @@ namespace NogginBug.MvcSite.Areas.Api.Controllers
 
             return StatusCode(201);
         }
+
+
     }
 }

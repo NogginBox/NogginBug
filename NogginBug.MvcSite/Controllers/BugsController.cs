@@ -40,30 +40,6 @@ namespace NogginBug.MvcSite.Controllers
             return View(model);
         }
 
-        [HttpPost("bug-{id}/close")]
-        public async Task<IActionResult> CloseBug(string id)
-        {
-            Guid.TryParse(id, out var guidId);
-            if (guidId == null) return NotFound();
-            var bug = await Data.Bugs.FirstOrDefaultAsync(b => b.IdExternal == guidId);
-            if (bug == null) return NotFound();
-
-            try
-            {
-                bug.Close();
-                await Data.SaveChangesAsync();
-
-                ShowSuccessNotification("Bug closed");
-            }
-            catch (Exception ex)
-            {
-                Logger.LogError(ex, "Could not close bug");
-                ShowErrorNotification("Could not close bug");
-            }
-
-            return RedirectToAction("DetailPage", new { id });
-        }
-
         [HttpGet("bug-{id}")]
         public async Task<IActionResult> DetailPage(string id)
         {

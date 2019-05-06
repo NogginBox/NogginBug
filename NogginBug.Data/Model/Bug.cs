@@ -40,6 +40,10 @@ namespace NogginBug.Data.Model
             };
         }
 
+        /// <summary>
+        /// Changes bug's status to closed.
+        /// (In the future may also update other properties for audit and extra info)
+        /// </summary>
         public void Close()
         {
             Status = BugStatus.Closed;

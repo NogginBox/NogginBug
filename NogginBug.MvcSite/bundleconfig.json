@@ -1,0 +1,26 @@
+[
+  {
+    "outputFileName": "wwwroot/js/site.js",
+    "inputFiles": [
+      "Content/Js/libs/_ajax.js",
+      "Content/Js/libs/_dom.js",
+      "Content/Js/libs/_notify.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": false
+    },
+    "sourceMap": false
+  },
+  {
+    "outputFileName": "wwwroot/js/bug-detail.js",
+    "inputFiles": [
+      "Content/Js/bug-detail.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": false
+  }
+]

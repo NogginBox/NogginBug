@@ -1,4 +1,5 @@
-﻿@model ViewModels.Bugs.DetailPageViewModel
+﻿@using  NogginBug.Data.Model
+@model ViewModels.Bugs.DetailPageViewModel
 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
@@ -6,11 +7,24 @@
         <li class="breadcrumb-item active" aria-current="page">@Model.Bug.Title</li>
     </ol>
 </nav>
-
-<form asp-action="CloseBug" asp-route-id="@Model.Bug.Id">
-    <button id="action-close" type="submit" class="btn btn-warning float-right">Close bug</button>
-</form>
+@if (Model.Bug.Status != BugStatus.Closed)
+{
+    <p>
+        <button id="action-close" class="btn btn-warning float-right" data-bugId="@Model.Bug.Id">Close bug</button>
+    </p>
+}
 
 <h1><span id="bug-title">@(Model.Bug.Title)</span> <span id="bug-status">(@Model.Bug.Status)</span></h1>
 <p class="font-weight-light"><time id="bug-date-opened" datetime="@Model.Bug.OpenedDate.ToString("yyyy-MM-dd hh:mm")2011-04-02/2011-04-04">@Model.Bug.OpenedDate.ToString("dddd dd MMMM yyyy at HH:mm")</time></p>
 <p id="bug-description">@Model.Bug.Description</p>
+
+@section Scripts
+{
+    <environment include="Development">
+        <script src="~/js/bug-detail.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/js/bug-detail.min.js" asp-append-version="true"></script>
+    </environment>
+
+}
