@@ -39,6 +39,22 @@ namespace NogginBug.Tests.Features.Steps
                 .PutJsonAsync(bugs);
         }
 
+        [When(@"I click the '(.*)' button")]
+        public void WhenIClickTheButton(string buttonName)
+        {
+            string IdForButton()
+            {
+                switch (buttonName)
+                {
+                    case "close bug": return "action-close";
+                    default: throw new Exception($"Unknow button '{buttonName}'");
+                }
+            }
+
+            var button = _webDriver.FindElementById(IdForButton());
+            button.Click();
+        }
+
         [When(@"I visit the '(.*)' page")]
         public void WhenIVisitPage(string page)
         {

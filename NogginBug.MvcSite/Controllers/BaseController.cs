@@ -17,6 +17,11 @@ namespace NogginBug.MvcSite.Controllers
             Logger = logger;
         }
 
+        protected void ShowErrorNotification(string message)
+        {
+            TempData.AddNotifcation(message, NotificationViewModel.NotificationType.Error);
+        }
+
         protected void ShowSuccessNotification(string message)
         {
             TempData.AddNotifcation(message, NotificationViewModel.NotificationType.Success);

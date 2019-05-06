@@ -97,7 +97,7 @@ this.ScenarioInitialize(scenarioInfo);
 #line 11
  testRunner.Then("a success message is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 12
- testRunner.And("the bug\'s status is \'closed\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("the bug\'s status is \'Closed\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

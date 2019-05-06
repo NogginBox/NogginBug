@@ -7,6 +7,10 @@
     </ol>
 </nav>
 
+<form asp-action="CloseBug" asp-route-id="@Model.Bug.Id">
+    <button id="action-close" type="submit" class="btn btn-warning float-right">Close bug</button>
+</form>
+
 <h1><span id="bug-title">@(Model.Bug.Title)</span> <span id="bug-status">(@Model.Bug.Status)</span></h1>
 <p class="font-weight-light"><time id="bug-date-opened" datetime="@Model.Bug.OpenedDate.ToString("yyyy-MM-dd hh:mm")2011-04-02/2011-04-04">@Model.Bug.OpenedDate.ToString("dddd dd MMMM yyyy at HH:mm")</time></p>
 <p id="bug-description">@Model.Bug.Description</p>

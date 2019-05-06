@@ -11,6 +11,7 @@
             {
                 case NotificationType.Info: CssClass = "alert-info"; break;
                 case NotificationType.Warning: CssClass = "alert-warning"; break;
+                case NotificationType.Error: CssClass = "alert-danger"; break;
                 case NotificationType.Success: CssClass = "alert-success"; break;
             }
         }
@@ -23,7 +24,7 @@
 
         public enum NotificationType
         {
-            Info, Warning, Success
+            Info, Warning, Error, Success
         }
     }
 }

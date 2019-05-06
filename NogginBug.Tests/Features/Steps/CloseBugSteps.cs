@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NogginBug.Tests.Features.Extensions;
+using OpenQA.Selenium.Remote;
 using TechTalk.SpecFlow;
 
 namespace NogginBug.Tests.Features.Steps
@@ -6,16 +7,17 @@ namespace NogginBug.Tests.Features.Steps
     [Binding]
     public class CloseBugSteps
     {
-        [When(@"I click the '(.*)' button")]
-        public void WhenIClickTheButton(string p0)
+        private readonly RemoteWebDriver _webDriver;
+
+        public CloseBugSteps(RemoteWebDriver webDriver)
         {
-            ScenarioContext.Current.Pending();
+            _webDriver = webDriver;
         }
-        
-        [Then(@"the bug'(.*)'closed'")]
-        public void ThenTheBugClosed(string p0)
+
+        [Then(@"the bug's status is '(.*)'")]
+        public void ThenTheBugClosed(string bugStatus)
         {
-            ScenarioContext.Current.Pending();
+            _webDriver.AssertElementTextContains("#bug-status", bugStatus);
         }
     }
 }

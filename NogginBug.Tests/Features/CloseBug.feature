@@ -9,4 +9,4 @@ Scenario: Close bug from bug detail screen
 	And I click the bug title
 	And I click the 'close bug' button
 	Then a success message is displayed
-	And the bug's status is 'closed'
+	And the bug's status is 'Closed'
