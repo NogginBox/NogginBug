@@ -2,9 +2,9 @@
 
 A simple bug tracking web app.
 
+
 # Todo
 
-* Feature: Add new user
 * Feature: Change user's name
 * New js driven notifications on page should replace old ones
 * AJAX progress spinners, make it clear that an AJAX action is in progress

@@ -5,7 +5,6 @@ namespace NogginBug.Tests.Features.Extensions
 {
     internal static class WebDriverExtensions
     {
-
         public static void AssertElementTextContains(this RemoteWebDriver webDriver, string cssSelector, string text)
         {
             var el = webDriver.FindElementByCssSelector(cssSelector);
@@ -16,6 +15,12 @@ namespace NogginBug.Tests.Features.Extensions
         {
             var el = webDriver.FindElementByCssSelector(cssSelector);
             Assert.StartsWith(text, el.Text);
+        }
+
+        public static void EnterInput(this RemoteWebDriver webDriver, string cssSelector, string text)
+        {
+            var el = webDriver.FindElementByCssSelector(cssSelector);
+            el.SendKeys(text);
         }
     }
 }

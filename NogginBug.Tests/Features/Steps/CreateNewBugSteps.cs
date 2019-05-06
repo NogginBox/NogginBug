@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium.Remote;
+﻿using NogginBug.Tests.Features.Extensions;
+using OpenQA.Selenium.Remote;
 using System;
 using TechTalk.SpecFlow;
 
@@ -17,8 +18,8 @@ namespace NogginBug.Tests
         [When(@"enter details of a new bug")]
         public void WhenEnterDetailsOfANewBug()
         {
-            EnterInput("#Bug_Title", "New title");
-            EnterInput("#Bug_Description", "New description");
+            _webDriver.EnterInput("#Bug_Title", "New title");
+            _webDriver.EnterInput("#Bug_Description", "New description");
         }
         
         [When(@"click save")]
@@ -28,10 +29,6 @@ namespace NogginBug.Tests
             btn.Click();
         }
 
-        private void EnterInput(string cssSelector, string text)
-        {
-            var el = _webDriver.FindElementByCssSelector(cssSelector);
-            el.SendKeys(text);
-        }
+        
     }
 }

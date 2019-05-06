@@ -77,6 +77,7 @@ namespace NogginBug.Tests.Features.Steps
                 switch(page)
                 {
                     case "add-bug": return Shared.SiteUrl.AppendPathSegment("create");
+                    case "add-user": return Shared.SiteUrl.AppendPathSegments("users", "create");
                     case "home": return Shared.SiteUrl;
                     default: throw new Exception($"Unknow page '{page}'");
                 }

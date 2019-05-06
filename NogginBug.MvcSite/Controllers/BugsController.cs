@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 
 namespace NogginBug.MvcSite.Controllers
 {
+
     [ApiExplorerSettings(IgnoreApi = true)]
     public class BugsController : BaseController
     {
