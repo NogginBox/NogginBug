@@ -17,5 +17,7 @@ namespace NogginBug.MvcSite.Areas.Api.Dtos
         public BugStatus Status { get; set; }
 
         public DateTime OpenedDate { get; set; }
+
+        public NogginBugUserDto AssignedUser { get; set; }
     }
 }

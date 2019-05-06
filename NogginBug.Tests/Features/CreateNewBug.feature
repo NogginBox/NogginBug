@@ -3,7 +3,6 @@
 	As a user
 	I want to add new bugs
 
-@mytag
 Scenario: Add new bug
 	# Given I have entered 50 into the calculator
 	When I visit the 'add-bug' page

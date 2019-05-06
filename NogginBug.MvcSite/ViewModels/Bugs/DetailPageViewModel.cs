@@ -1,4 +1,5 @@
-﻿using NogginBug.MvcSite.ViewModels.Shared;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using NogginBug.MvcSite.ViewModels.Shared;
 
 namespace NogginBug.MvcSite.ViewModels.Bugs
 {
@@ -7,5 +8,7 @@ namespace NogginBug.MvcSite.ViewModels.Bugs
         public DetailPageViewModel(string title) : base(title) { }
 
         public BugViewModel Bug { get; set; }
+
+        public SelectList AvailableUsers { get; set; }
     }
 }

@@ -18,6 +18,14 @@
 <p class="font-weight-light"><time id="bug-date-opened" datetime="@Model.Bug.OpenedDate.ToString("yyyy-MM-dd hh:mm")2011-04-02/2011-04-04">@Model.Bug.OpenedDate.ToString("dddd dd MMMM yyyy at HH:mm")</time></p>
 <p id="bug-description">@Model.Bug.Description</p>
 
+<p>
+    <label asp-for="Bug.AssignedUser.Id">Assigned user</label>
+    <select asp-for="Bug.AssignedUser.Id" asp-items="Model.AvailableUsers" class="form-control" data-bugId="@Model.Bug.Id">
+        <option value="">No one</option>
+    </select>
+
+</p>
+
 @section Scripts
 {
     <environment include="Development">

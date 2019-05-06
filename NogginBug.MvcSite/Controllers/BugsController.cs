@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using NogginBug.Data;
@@ -9,6 +10,7 @@ using NogginBug.MvcSite.Services.Interfaces;
 using NogginBug.MvcSite.ViewModels.Bugs;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace NogginBug.MvcSite.Controllers
@@ -45,11 +47,19 @@ namespace NogginBug.MvcSite.Controllers
         {
             Guid.TryParse(id, out var guidId);
             if (guidId == null) return NotFound();
-            var bug = await Data.Bugs.FirstOrDefaultAsync(b => b.IdExternal == guidId);
+            var bug = await Data.Bugs
+                .Include(b => b.AssignedUser)
+                .FirstOrDefaultAsync(b => b.IdExternal == guidId);
             if (bug == null) return NotFound();
+
+            var allUsers = await Data.Users
+                .OrderBy(u => u.Name)
+                .ToListAsync();
+            var availableUsersList = new SelectList(allUsers, "IdExternal", "Name");
 
             var model = new DetailPageViewModel($"Bug: {bug.Title}")
             {
+                AvailableUsers = availableUsersList,
                 Bug = _mapper.Map<BugViewModel>(bug)
             };
 

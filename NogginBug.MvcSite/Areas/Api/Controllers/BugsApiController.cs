@@ -14,6 +14,8 @@ using System.Threading.Tasks;
 
 namespace NogginBug.MvcSite.Areas.Api.Controllers
 {
+
+
     [Route("api/v1/bugs")]
     [ApiController]
     public class BugsApiController : ApiControllerBase
@@ -26,11 +28,47 @@ namespace NogginBug.MvcSite.Areas.Api.Controllers
         }
 
         /// <summary>
-        /// Closes a bug
+        /// Assign this bug to a user
+        /// </summary>
+        [HttpPost("{id}/assign")]
+        public async Task<IActionResult> Assign(string id, [FromBody] NogginBugUserDto userDto)
+        {
+            // Todo: Repeated this code block several times, look at way to improve #td1
+            Guid.TryParse(id, out var bugGuidId);
+            if (bugGuidId == null) return NotFound();
+            var bug = await Data.Bugs.FirstOrDefaultAsync(b => b.IdExternal == bugGuidId);
+            if (bug == null) return NotFound();
+
+            Guid.TryParse(userDto.Id, out var userGuidId);
+            if (userGuidId == null) return NotFound();
+            var user = await Data.Users.FirstOrDefaultAsync(b => b.IdExternal == userGuidId);
+
+            try
+            {
+                if(!bug.AssignUser(user))
+                {
+                    return StatusCode(400);
+                }
+                await Data.SaveChangesAsync();
+
+                var bugDto = _mapper.Map<BugDto>(bug);
+
+                return Ok(bugDto);
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex, "Could not close bug");
+                return StatusCode(500);
+            }
+        }
+
+        /// <summary>
+        /// Closes this bug
         /// </summary>
         [HttpPost("{id}/close")]
         public async Task<IActionResult> Close(string id)
         {
+            // Todo: Repeated this code block several times, look at way to improve #td1
             Guid.TryParse(id, out var guidId);
             if (guidId == null) return NotFound();
             var bug = await Data.Bugs.FirstOrDefaultAsync(b => b.IdExternal == guidId);
@@ -58,6 +96,7 @@ namespace NogginBug.MvcSite.Areas.Api.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(string id)
         {
+            // Todo: Repeated this code block several times, look at way to improve #td1
             Guid.TryParse(id, out var guidId);
             if (guidId == null) return NotFound();
             var bug = await Data.Bugs.FirstOrDefaultAsync(b => b.IdExternal == guidId);

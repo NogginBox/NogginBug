@@ -7,7 +7,9 @@ namespace NogginBug.Data
 {
     public interface IDataContext
     {
-        DbSet<Bug> Bugs { get; set; }
+        DbSet<Bug> Bugs { get; }
+
+        DbSet<NogginBugUser> Users { get; }
 
         int SaveChanges();
 

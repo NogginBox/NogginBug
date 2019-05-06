@@ -19,5 +19,5 @@ System.Configuration.ConfigurationErrorsException: SpecFlow configuration error 
 
 
 Command: C:\USERS\RICHARD\APPDATA\LOCAL\MICROSOFT\VISUALSTUDIO\16.0_5C5FC482\EXTENSIONS\BERSOAIN.01B\TechTalk.SpecFlow.VisualStudio.CodeBehindGenerator.exe
-Parameters: GenerateTestFile --featurefile C:\Users\Richard\AppData\Local\Temp\tmp2AE0.tmp --outputdirectory C:\Users\Richard\AppData\Local\Temp --projectsettingsfile C:\Users\Richard\AppData\Local\Temp\tmp2ACF.tmp
+Parameters: GenerateTestFile --featurefile C:\Users\Richard\AppData\Local\Temp\tmpF26A.tmp --outputdirectory C:\Users\Richard\AppData\Local\Temp --projectsettingsfile C:\Users\Richard\AppData\Local\Temp\tmpF269.tmp
 Working Directory: 

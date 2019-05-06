@@ -17,8 +17,9 @@ namespace NogginBug.Data
 
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
 
-        public DbSet<Bug> Bugs { get; set; }
+        public DbSet<Bug> Bugs { get; private set; }
 
+        public DbSet<NogginBugUser> Users { get; private set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

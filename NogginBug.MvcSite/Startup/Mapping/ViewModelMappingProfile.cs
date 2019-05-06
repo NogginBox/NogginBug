@@ -12,6 +12,9 @@ namespace NogginBug.MvcSite.Startup.Mapping
 
             CreateMap<Bug, ViewModels.Bugs.BugSummaryViewModel>()
                 .ForMember(d => d.Id, opt => opt.MapFrom(s => s.IdExternal));
+
+            CreateMap<NogginBugUser, ViewModels.Shared.NogginBugUserViewModel>()
+                .ForMember(d => d.Id, opt => opt.MapFrom(s => s.IdExternal));
         }
     }
 }

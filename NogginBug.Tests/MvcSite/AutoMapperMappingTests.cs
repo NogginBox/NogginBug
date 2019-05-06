@@ -26,7 +26,10 @@ namespace NogginBug.Tests.MvcSite
             var fixture = new Fixture();
             var bugDto = fixture.Build<BugDto>()
                 .With(d => d.Id, Guid.NewGuid().ToString())
+                //.With(d => d.AssignedUser, (NogginBugUserDto)null)
                 .Create();
+
+            bugDto.AssignedUser.Id = Guid.NewGuid().ToString();
 
             // Act
             var bug = mapper.Map<Bug>(bugDto);

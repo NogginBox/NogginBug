@@ -41,6 +41,18 @@ namespace NogginBug.Tests.Features.Steps
                 .PutJsonAsync(bugs);
         }
 
+        [Given(@"there is a User with name '(.*)'")]
+        public async Task GivenThereIsAUserWithName(string name)
+        {
+            await Shared.SiteUrl
+                .AppendPathSegment("api/v1/users")
+                .AllowHttpStatus("303")
+                .PostJsonAsync(new
+                {
+                    name
+                });
+        }
+
         [When(@"I click the '(.*)' button")]
         public void WhenIClickTheButton(string buttonName)
         {

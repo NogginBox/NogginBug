@@ -63,7 +63,8 @@ var _dom = function (d) {
 
         // Todo: rethrink mechanism of operating on single of array of els
         var eachFunc = function (func) {
-            if (_el.length !== undefined) {
+            // Is a collection, but not a selectlist
+            if (_el.length !== undefined && _el.selectedIndex === undefined) {
                 for (var i = 0; i < _el.length; i++) {
                     func(html(_el[i]));
                 }
