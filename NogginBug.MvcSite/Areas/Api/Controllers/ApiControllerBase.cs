@@ -9,7 +9,7 @@ namespace NogginBug.MvcSite.Areas.Api.Controllers
         protected readonly IDataContext Data;
         protected readonly ILogger Logger;
 
-        public ApiControllerBase(IDataContext data, Microsoft.Extensions.Logging.ILogger<BugsController> logger)
+        public ApiControllerBase(IDataContext data, Microsoft.Extensions.Logging.ILogger<BugsApiController> logger)
         {
             Data = data;
             Logger = logger;

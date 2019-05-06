@@ -16,11 +16,11 @@ namespace NogginBug.MvcSite.Areas.Api.Controllers
 {
     [Route("api/v1/bugs")]
     [ApiController]
-    public class BugsController : ApiControllerBase
+    public class BugsApiController : ApiControllerBase
     {
         private readonly IMapper _mapper;
 
-        public BugsController(IDataContext data, ILogger<BugsController> logger, IMapper mapper) : base(data, logger)
+        public BugsApiController(IDataContext data, ILogger<BugsApiController> logger, IMapper mapper) : base(data, logger)
         {
             _mapper = mapper;
         }
