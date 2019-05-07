@@ -81,12 +81,16 @@ namespace NogginBug.MvcSite.Controllers
         [HttpPost("create")]
         public async Task<IActionResult> CreatePage(BugEditViewModel bug)
         {
-            if(!ModelState.IsValid)
+            ViewResult ErrorView(string notificationMessage)
             {
+                ShowErrorNotification(notificationMessage);
                 var model = new CreatePageViewModel($"Bug: Create new") { Bug = bug };
-
-                ShowErrorNotification("Please check the details and try again");
                 return View(model);
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return ErrorView("Please check the details and try again");
             }
 
             try
@@ -101,10 +105,7 @@ namespace NogginBug.MvcSite.Controllers
             catch(Exception ex)
             {
                 Logger.LogError(ex, "Could not save new bug");
-                var model = new CreatePageViewModel($"Bug: Create new") { Bug = bug };
-
-                ShowErrorNotification("An error stopped this bug being created");
-                return View(model);
+                return ErrorView("An error stopped this bug being created");
             }
         }
     }
